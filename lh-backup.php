@@ -3,7 +3,7 @@
 Plugin Name: LH Backup
 Plugin URI: http://lhero.org/plugins/lh-backup/
 Description: Creates an email backup of tables in the database
-Version: 1.0
+Version: 1.1
 Author: Peter Shaw
 Author URI: http://shawfactor.com/
 */
@@ -349,22 +349,22 @@ $this->options = get_site_option($this->opt_name);
 
 <div class="wrap">
 
-<h2>LH Backup Settings</h2>
+<h1>LH Backup Settings</h1>
 
 <form name="form1" method="post" action="">
 <input type="hidden" name="<?php echo $lh_backup_hidden_field_name; ?>" value="Y">
 
-<p><?php _e("Backup Page Id;", 'menu-test' ); ?> 
-<input type="number" name="<?php echo $this->page_id_field; ?>" value="<?php echo $this->options[$this->page_id_field]; ?>" size="10" />
+<p><label for="<?php echo $this->page_id_field; ?>"><?php _e("Backup Page Id;", 'menu-test' ); ?></label>
+<input type="number" name="<?php echo $this->page_id_field; ?>" id="<?php echo $this->page_id_field; ?>" value="<?php echo $this->options[$this->page_id_field]; ?>" size="10" /><a href="<?php echo get_permalink($this->options[$this->page_id_field]); ?>">Link</a>
 </p>
 
-<p><?php _e("Backup Email Recipients;", 'menu-test' ); ?> 
-<input type="text" name="<?php echo $this->email_field; ?>" value="<?php echo implode(",", $this->options[ $this->email_field ]); ?>" size="60" /><br/>
+<p><label for="<?php echo $this->email_field; ?>"><?php _e("Backup Email Recipients;", 'menu-test' ); ?></label> 
+<input type="text" name="<?php echo $this->email_field; ?>" id="<?php echo $this->email_field; ?>" value="<?php echo implode(",", $this->options[ $this->email_field ]); ?>" size="60" /><br/>
 Enter a comma separated list of email addresses excluding e.g. *foo@bar.com,you@youremail.net
 </p>
 
-<p><?php _e("Queries to Run;", 'menu-test' ); ?>
-<input type="text" name="<?php echo $this->queries_field; ?>" value="<?php echo implode(",", $this->options[ $this->queries_field ]); ?>" size="60" /><br/>
+<p><label for="<?php echo $this->queries_field; ?>"><?php _e("Queries to Run;", 'menu-test' ); ?></label> 
+<input type="text" name="<?php echo $this->queries_field; ?>" id="<?php echo $this->queries_field; ?>" value="<?php echo implode(",", $this->options[ $this->queries_field ]); ?>" size="60" /><br/>
 Enter a comma separated list of sql statements excluding the "select" function e.g. * from wp_usermeta,* from wp_users
 </p>
 
